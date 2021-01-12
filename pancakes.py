@@ -1,3 +1,6 @@
+# How many?
+x = 8
+
 # Assemble utensils and ingredients
 from kitchen import Rosemary
 from kitchen.utensils import Bowl, Pan, Fridge, Plate
@@ -16,12 +19,12 @@ bowl.add(Salt.take('dash'))
 
 # Add flour to the batter
 for i in range(5):
-    bowl.add(Flour.take(grams=50))
+    bowl.add(Flour.take(grams=(50/8)*x))
     bowl.mix()
 
 # Add milk
 for i in range(2):
-    bowl.add(Milk.take(ml=250))
+    bowl.add(Milk.take(ml=(250/8)*x))
     bowl.mix()
 
 # Get the pan
@@ -31,7 +34,7 @@ plate = Plate.use()
 # Cook 8 pancakes
 for i in range(8):
     pan.add(Butter.take('slice'))
-    pan.add(bowl.take('1/8'))
+    pan.add(bowl.take((f'1/{x}')))
     for i in range(3):
         pan.cook(minutes=1/2)
         pan.flip()
